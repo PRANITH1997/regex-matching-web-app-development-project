@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Validation</title>
+</head>
+<body>
+    <h1>Email Validation</h1>
+    <form method="POST" action="/validate_email">
+        <label for="email">Enter an email address:</label><br>
+        <input type="text" id="email" name="email"><br>
+        <input type="submit" value="Validate">
+    </form>
+    {% if validation_result %}
+    <h2>Validation Result:</h2>
+    <p>{{ validation_result }}</p>
+    {% endif %}
+</body>
+</html>

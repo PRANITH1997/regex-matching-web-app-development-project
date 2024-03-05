@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], input[type="submit"] {
+            padding: 5px;
+            margin-bottom: 10px;
+            width: 300px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .error {
+            color: red;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>String Validation Using Regex Pattern</h1>
+    {% if error %}
+    <p class="error">Error: {{ error }}</p>
+    {% endif %}
+    <form method="POST" action="/">
+        <label for="test_string">Enter a test string:</label><br>
+        <input type="text" id="test_string" name="test_string"><br>
+        <label for="regex_pattern">Enter a regex pattern:</label><br>
+        <input type="text" id="regex_pattern" name="regex_pattern"><br>
+        <input type="submit" value="Submit">
+    </form>
+    <h1>Email Validation</h1>
+    <form method="POST" action="/validate_email">
+        <label for="email">Enter an email address:</label><br>
+        <input type="text" id="email" name="email"><br>
+        <input type="submit" value="Validate Email">
+    </form>
+    {% if matched_strings %}
+    <h2>Matched Strings:</h2>
+    <ul>
+        {% for matched_string in matched_strings %}
+        <li>{{ matched_string }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>
